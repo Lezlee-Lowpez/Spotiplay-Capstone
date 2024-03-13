@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Spotiplay</title>
+    <body>
+
+          <main>
+            <section id="home">
+                <div class="flex-container">
+                <header>
+                    <h1>Spotiplay</h1>
+                  </header>
+              <button id="loginBtn">Login</button>
+              <button id="signupBtn">Sign Up</button>
+              <button id="howToPlayBtn">How to Play</button>
+            </div>
+            </section>
+        
+
+            <section id="loginSection" class="hidden">
+                <div class="loginImage2"></div>
+                <div class="flex-container">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                    <br>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                    <br>
+                    <button id="loginButton">Submit</button>
+                </form>
+                <button id="backBtn2">Back to Home</button>
+            </div>
+            <div class="loginImage"></div>
+            </section>
+
+        
+            <section id="signupSection" class="hidden">
+            
+              <div class="flex-container">
+                <h2>Sign Up</h2>
+
+                <form id="signUpForm">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                    <br>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                    <br>
+                    <button id="signUpButton">Submit</button>
+                </form>
+
+                <button id="backBtn1">Back to Home</button>
+            </div>
+            </section>
+
+
+            <section id="howToPlaySection" class="hidden">
+              <!-- Instructions go here -->
+              <div class="flex-container">
+                <div class="vertical-container">
+                <h2>How to Play</h2>
+                <img src="music_note.png">
+                </div>
+
+                <p>Welcome to SpotiPlay, where your Spotify song savvy is put to the test. Ready for a rapid-fire round of musical discovery? Here’s how to hit the high score in five tries:
+                    <br>
+                    <ol>
+
+                   <li> <strong>Start the Beat:</strong> Click 'Start' and brace yourself. You’ve got some clips and limited chances to shine.</li><br>
+                    
+                    <li> <strong>Tune In:</strong> Listen carefully as each song snippet plays. The clues are in the melody, waiting for you to catch them.</li><br>
+                    
+                    <li> <strong>Quick Guess:</strong> Identify the song? Type it in and submit your guess. Remember, you have limited shots, so make them count!</li><br>
+                    
+                    <li> <strong>Rack Up Points:</strong> Each correct guess boosts your score. Aim for accuracy and secure your spot on the leader board.</li><br>
+                    
+                    <li> <strong>Five and Fly:</strong> After all the clips, the game wraps. Check your score, see where you stand, and discover new tracks along the way. </li><br>
+                    </ol>
+                    SpotiPlay isn’t just a game; it's a sprint through the sound waves. Find your rhythm, enjoy the music, and maybe even discover your new favorite track.
+                
+                    Ready, set, SpotiPlay!</p>
+
+                    <button id="backBtn">Back to Home</button>
+              </div>
+            </section>
+
+            <section id="gameInterface" class="hidden">
+                <div class="flex-container">
+              <!-- Game interface elements go here -->
+              <h1>Press Play to Start</h1>
+
+                <button id="PressPlay">
+                    <img src="myPlayBtn.png">
+                </button>
+                <audio id="audioPlayer"></audio>
+                <input/>
+                <button id="submitGuess">Submit</button>
+                <div id="timerDisplay">30</div>
+
+            </div>
+            </section>
+        
+            <section id="resultGoodFeedback" class="hidden">
+                <div class="result-wrapper"> 
+              <img src="blueblob.png" class="blob">
+              <div class="flex-container">
+              <h1>Correct</h1>
+              <h2>Score:</h2>
+              <h2 id="newScoreGood"></h2>
+              <button id="rightBtn">Play Again</button>
+              </div>
+              <img src="blueblob.png" class="blob">
+                </div>
+            </section>
+
+            <section id="resultBadFeedback" class="hidden">
+                <div class="result-wrapper">
+                <img src="blackblob.png" class="blob">
+                <!-- Result feedback elements go here -->
+                <div class="flex-container">
+                <h1>Not Quite!</h1>
+                <h2>Score:</h2>
+                <h2 id="newScoreBad"></h2>
+                <button id="wrongBtn">Play Again</button>
+            </div>
+                <img src="blackblob.png" class="blob">
+            </div>
+              </section>
+          </main>
+    
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

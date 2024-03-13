@@ -1,0 +1,232 @@
+body {
+    background-color: rgb(57, 0, 243) ;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
+.hidden {
+    display: none;
+  }
+
+#home button {
+    background-color: rgb(28, 209, 85);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 200%;
+    padding: 30px 90px;
+    border-radius: 35px;
+    margin: 30px;
+}
+
+#home button:hover {
+    background-color: rgb(20, 150, 70);
+}
+
+header {
+    font-size: 400%;
+    margin-top: -10%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#howToPlaySection h2 {
+    font-size: 300%;
+}
+
+#howToPlaySection {
+    font-size: 120%;
+}
+
+#howToPlaySection button {
+    background-color: rgb(28, 209, 85);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 100%;
+    padding: 20px 50px;
+    border-radius: 35px;
+    margin: 30px;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#howToPlaySection img {
+    width: 60px;
+    height: 80px;
+}
+
+#signupSection {
+    color: rgb(255, 60, 208);
+    background-image: url(pinkcirc.png);
+    /* height:fit-content; */
+    background-repeat:space;
+    background-size:600px;
+    margin-top: 150px;
+}
+
+#signUpForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 250px;
+    color: white;
+}
+
+#backBtn1 {
+    margin-bottom: 750px;
+}
+
+#signupSection h2 {
+    font-size: 300%;
+    color: white; 
+}
+
+#signupSection button {
+    background-color: white;
+    color: rgb(255, 60, 208);
+    cursor: pointer;
+    border: none;
+    font-size: 100%;
+    padding: 20px 50px;
+    border-radius: 35px;
+    margin: 30px;
+}
+
+#loginSection {
+    color: rgb(56, 31, 235);
+    position: relative;
+}
+
+.loginImage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 670px;
+    height: 800px;
+    background-image: url(newShape.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.loginImage2 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 670px;
+    height: 800px;
+    background-image: url(newShape.png);
+    background-size: cover;
+    background-position: center;
+    transform: scaleX(-1);
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#loginSection h2 {
+    font-size: 300%;
+}
+
+#loginSection button {
+    background-color: rgb(56, 31, 235);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 100%;
+    padding: 20px 50px;
+    border-radius: 35px;
+    margin: 30px;
+}
+
+#gameInterface h1{
+    font-size: 300%;
+}
+
+#gameInterface {
+    color: rgb(144, 238, 221);
+}
+
+#PressPlay {
+    background-image: url(myPlayBtn.png);
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+  
+}
+#timerDisplay {
+    font-size: 500%;
+}
+
+#resultBadFeedback {
+    color: black;
+}
+
+#resultBadFeedback h1 {
+    font-size: 300%;
+}
+
+#resultBadFeedback h2 {
+    font-size: 250%;
+}
+
+#resultGoodFeedback {
+    color: rgb(57, 0, 243);
+}
+
+#resultGoodFeedback h1{
+    font-size: 300%;
+}
+
+#resultGoodFeedback h2{
+    font-size: 250%;
+}
+#wrongBtn {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 100%;
+    padding: 20px 50px;
+    border-radius: 35px;
+    margin: 30px;
+}
+
+#rightBtn {
+    background-color: rgb(56, 31, 235);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 100%;
+    padding: 20px 50px;
+    border-radius: 35px;
+    margin: 30px;
+}
+
+.result-wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+}
+
+.blob {
+    flex: 0 1 auto; 
+    margin: 0 20px; 
+}
