@@ -89,19 +89,19 @@ To run this application on your own device, please follow the steps outlined bel
 
 You will need to create two tables, `users` and `scores`, to store user information and their scores respectively. Use the SQL statements provided below to create these tables:
 
-```sql
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  username VARCHAR(30) NOT NULL,
-  password VARCHAR(30) NOT NULL
-);
-
-CREATE TABLE scores (
-  id SERIAL PRIMARY KEY,
-  user_id INT NOT NULL,
-  score INT DEFAULT 0,
-  FOREIGN KEY (user_id) REFERENCES users(id)
-);```
+      ```sql
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(30) NOT NULL,
+        password VARCHAR(30) NOT NULL
+      );
+      
+      CREATE TABLE scores (
+        id SERIAL PRIMARY KEY,
+        user_id INT NOT NULL,
+        score INT DEFAULT 0,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+      );```
 
 
 ## Languages & Frameworks Used 🖥️
