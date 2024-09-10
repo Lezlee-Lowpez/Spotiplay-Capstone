@@ -2,7 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 
-const {SERVER_PORT} = process.env
+// const {SERVER_PORT} = process.env
+const port = process.env.PORT || 5555;
 
 const app = express()
 
@@ -26,4 +27,5 @@ app.post('/api/signUp', signUp)
 app.post('/api/updateScore', updateScore);
 
 // here you set the application up on a port 
-app.listen(SERVER_PORT, () => console.log(`I am running on port 5555 or ${process.env.SERVER_PORT}`))
+// app.listen(SERVER_PORT, () => console.log(`I am running on port 5555 or ${process.env.SERVER_PORT}`))
+app.listen(port, () => console.log(`I am running on port 5555 or render`))
