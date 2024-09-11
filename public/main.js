@@ -43,7 +43,7 @@ document.getElementById('backBtn2').addEventListener('click', function() {
 });
 //This is for AFTER LOGIN
 const getTrack = () => {
-    return axios.get(`http://localhost:5555/api/getTrackUrl`).then((res)=> {
+    return axios.get(`https://spotiplay-capstone.onrender.com/api/getTrackUrl`).then((res)=> {
         //this just returns the url and the name so 
         const myUrl = res.data.preview_url
         const nameOfSong = res.data.name.toUpperCase()
@@ -114,7 +114,7 @@ function checkLogin(event) {
     const username = document.querySelector('input[name="username"]').value;
     const password = document.querySelector('input[name="password"]').value;
 
-    axios.post(`http://localhost:5555/api/login`, { username, password })
+    axios.post(`https://spotiplay-capstone.onrender.com/api/login`, { username, password })
     .then(res => {
         if (res.data.success) {
             console.log("Login successful");
@@ -149,7 +149,7 @@ function checkLogin(event) {
 
 
         //send to back end
-        axios.post(`http://localhost:5555/api/signUp`, {username, password})
+        axios.post(`https://spotiplay-capstone.onrender.com/api/signUp`, {username, password})
         .then(response => {
             console.log(response.data)
             alert("Sign up successful!")
@@ -193,7 +193,7 @@ function checkLogin(event) {
             try {
                 // Always call updateScore to fetch and display the current score.
                 // If pointsToAdd is 0, the score won't change, but we still fetch the current score.
-                const response = await axios.post(`http://localhost:5555/api/updateScore`, { userId, points: pointsToAdd });
+                const response = await axios.post(`https://spotiplay-capstone.onrender.com/api/updateScore`, { userId, points: pointsToAdd });
                 console.log("Score fetched successfully");
                 // Use the score from the response to update the HTML, even if pointsToAdd was 0.
                 displayScore(response.data.updatedScore);
