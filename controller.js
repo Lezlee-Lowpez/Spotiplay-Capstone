@@ -58,33 +58,34 @@ module.exports = {
     },
 // interacting with my DB here!!
 getLogin: (req, res) => {
+    console.log("Login request received:", req.body)
     const { username, password } = req.body;
     
     sequelize.query(`
         SELECT * FROM users WHERE username = :username AND password = :password;
     `, { 
-        replacements: { username, password },
+        replacements: { username: username, password: password},
         type: Sequelize.QueryTypes.SELECT 
     })
     .then(users => {
         if (users.length > 0) {
             // User found
             const user = users[0]
-            res.status(200).json({ success: true, message: "Login successful", userId: user.id });
+            return res.status(200).json({ success: true, message: "Login successful", userId: user.id });
         } else {
             // User not found
-            res.status(401).json({ success: false, message: "Invalid credentials" });
+            return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
     })
     .catch(err => {
         console.error("Login query failed:", err);
-        res.status(500).send("Error during login");
+        return res.status(500).send("Error during login");
     });
 },
 
     signUp: (req, res) => {
         // when i get a response from the front end i want to parse that response and input it in my db
-        const {username, password}= req.body;
+        const {username, password} = req.body;
 
         // console.log("Lesley this is what the back end is receiving during sign ups:", req.body)
       
@@ -93,10 +94,14 @@ getLogin: (req, res) => {
         INSERT INTO users (username, password)
         VALUES (:username, :password);
         `, { 
-            replacements: { username, password } 
-        }).then(() => res.status(200).send("User created successfully."))
+            replacements: { username, password }, 
+        })
+        .then(() => {
+             return res.status(200).send("User created successfully.");
+    })
         .catch(err => {
         console.log("There was an error creating the user:", err);
+        return res.status(500).send("Error during sign up.");
         });
 
     },
@@ -115,15 +120,15 @@ getLogin: (req, res) => {
             if (result[0] && result[0].length > 0) {
                 
                 const updatedScore = result[0][0].score;
-                res.status(200).json({ message: "Score updated successfully.", updatedScore });
+                return res.status(200).json({ message: "Score updated successfully.", updatedScore });
             } else {
                 // Handle the case where the score row might not exist
-                res.status(404).json({ message: "Score entry not found." });
+                return res.status(404).json({ message: "Score entry not found." });
             }
         })
         .catch(err => {
             console.error("Error updating score:", err);
-            res.status(500).send("Error updating score");
+            return res.status(500).send("Error updating score");
         });
     }   
 };    
