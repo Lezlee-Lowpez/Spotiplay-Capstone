@@ -108,6 +108,8 @@ header {
 #loginSection {
     color: rgb(56, 31, 235);
     position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .loginImage {
