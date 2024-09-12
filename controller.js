@@ -108,6 +108,8 @@ getLogin: (req, res) => {
 
     updateScore: (req, res) => {
         const { userId, points } = req.body;
+        console.log("This is the user id and points:", userId, points)
+        console.log("I am printing the body too jus to look at it: ", req.body)
     
         // Update the score and return the updated score in the same query
         sequelize.query(`
