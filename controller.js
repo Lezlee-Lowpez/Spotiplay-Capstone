@@ -119,6 +119,7 @@ getLogin: (req, res) => {
             type: sequelize.QueryTypes.UPDATE 
         })
         .then((result) => {
+            console.log("Result of UPDATE query: ", result)
             if (result[0] && result[0].length > 0) {
                 
                 const updatedScore = result[0][0].score;
