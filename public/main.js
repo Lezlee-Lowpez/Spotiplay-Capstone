@@ -78,6 +78,7 @@ const playAudio = async () => {
 
             if (timeLeft <= 0) {
                 clearTimer(); // Stop the timer
+                alert("Time's up!")
                 if (document.getElementById('gameInterface').classList.contains('hidden') === false) {
                     processGuess(); // Only call processGuess if the game interface is still visible
                 }
@@ -177,7 +178,7 @@ function checkLogin(event) {
     
         document.getElementById('gameInterface').classList.add('hidden');
     
-        alert("Time is up!");
+        alert("Let's see if you were right!");
     
         if (userGuess === currentSongName) {
             console.log("Correct!");
