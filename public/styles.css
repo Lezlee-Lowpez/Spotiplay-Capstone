@@ -34,6 +34,7 @@ header {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    z-index: 2;
 }
 
 #howToPlaySection h2 {
@@ -116,8 +117,10 @@ header {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 670px;
-    height: 800px;
+    width: 100%;
+    max-width:670px;
+    height: auto;
+    max-height: 100vh;
     background-image: url(newShape.png);
     background-size: cover;
     background-position: center;
@@ -127,8 +130,10 @@ header {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 670px;
-    height: 800px;
+    width: 100%;
+    max-width:670px;
+    height: auto;
+    max-height: 100vh;
     background-image: url(newShape.png);
     background-size: cover;
     background-position: center;
@@ -231,4 +236,18 @@ header {
 .blob {
     flex: 0 1 auto; 
     margin: 0 20px; 
+}
+
+@media screen and (max-width: 768px) {
+    .loginImage, .loginImage2 {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .loginImage, .loginImage2 {
+        width: 80%;
+        height: auto;
+    }
 }
