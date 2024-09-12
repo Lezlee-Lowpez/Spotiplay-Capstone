@@ -165,6 +165,7 @@ function checkLogin(event) {
     };
 
     function displayScore(newScore) {
+        console.log("displaying score", newScore)
         document.getElementById('newScoreGood').textContent = `${newScore}`;
         document.getElementById('newScoreBad').textContent = `${newScore}`;
     }
