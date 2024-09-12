@@ -113,21 +113,35 @@ getLogin: (req, res) => {
     
         // Update the score and return the updated score in the same query
         sequelize.query(`
-            UPDATE scores SET score = score + :points WHERE user_id = :userId RETURNING score;
-        `, { 
-            replacements: { userId, points },
-            type: sequelize.QueryTypes.UPDATE 
+            SELECT * FROM scores WHERE user_id = :userId;
+        `, {
+            replacements: { userId },
+            type: sequelize.QueryTypes.SELECT
+        })
+        .then(result => {
+            if (result.length === 0) {
+                // No entry exists, insert a new row with the initial score
+                return sequelize.query(`
+                    INSERT INTO scores (user_id, score) VALUES (:userId, :points)
+                    RETURNING score;
+                `, {
+                    replacements: { userId, points },
+                    type: sequelize.QueryTypes.INSERT
+                });
+            } else {
+                // Entry exists, update the score
+                return sequelize.query(`
+                    UPDATE scores SET score = score + :points WHERE user_id = :userId RETURNING score;
+                `, {
+                    replacements: { userId, points },
+                    type: sequelize.QueryTypes.UPDATE
+                });
+            }
         })
         .then((result) => {
-            console.log("Result of UPDATE query: ", result)
-            if (result[0] && result[0].length > 0) {
-                
-                const updatedScore = result[0][0].score;
-                return res.status(200).json({ message: "Score updated successfully.", updatedScore });
-            } else {
-                // Handle the case where the score row might not exist
-                return res.status(404).json({ message: "Score entry not found." });
-            }
+            console.log("Result of query:", result);
+            const updatedScore = result[0][0].score;
+            return res.status(200).json({ message: "Score updated successfully.", updatedScore });
         })
         .catch(err => {
             console.error("Error updating score:", err);
