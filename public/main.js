@@ -55,6 +55,7 @@ const getTrack = () => {
 let guessTimeout;
 let countDown;
 let currentSongName;
+let timeLeft = 30;
 
 const playAudio = async () => {
     clearTimer(); // Make sure to clear any existing timer before starting a new one
@@ -69,7 +70,7 @@ const playAudio = async () => {
         audioPlayer.src = playUrl;
         audioPlayer.play();
 
-        let timeLeft = 30; // Reset time left for the round
+        timeLeft = 30;// Reset time left for the round
         document.getElementById('timerDisplay').textContent = timeLeft;
 
         countDown = setInterval(() => {
@@ -80,7 +81,7 @@ const playAudio = async () => {
                 clearTimer(); // Stop the timer
                 alert("Time's up!")
                 if (document.getElementById('gameInterface').classList.contains('hidden') === false) {
-                    processGuess(); // Only call processGuess if the game interface is still visible
+                    processGuess(timeLeft); // Only call processGuess if the game interface is still visible
                 }
             }
         }, 1000);
@@ -102,7 +103,7 @@ function clearTimer() {
 function userSubmittedGuess() {
     clearTimer()
     clearTimeout(guessTimeout);
-    processGuess();
+    processGuess(timeLeft);
 
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.pause();
@@ -168,7 +169,7 @@ function checkLogin(event) {
         document.getElementById('newScoreBad').textContent = `${newScore}`;
     }
     
-    async function processGuess() {
+    async function processGuess(timeLeft) {
         clearTimer();
         const userGuess = document.querySelector('#gameInterface input').value.toUpperCase();
         console.log("User guess:", userGuess);
@@ -178,7 +179,10 @@ function checkLogin(event) {
     
         document.getElementById('gameInterface').classList.add('hidden');
     
-        alert("Let's see if you were right!");
+        if (timeLeft > 0) {
+            alert("Let's see if you were right!");
+        }
+        
     
         if (userGuess === currentSongName) {
             console.log("Correct!");
@@ -214,6 +218,10 @@ function checkLogin(event) {
     function startNewGame() {
         document.getElementById('resultGoodFeedback').classList.add('hidden');
         document.getElementById('resultBadFeedback').classList.add('hidden');
+
+        clearTimer();
+
+        timeLeft = 30;
 
         if (countDown) {
             clearInterval(countDown);
